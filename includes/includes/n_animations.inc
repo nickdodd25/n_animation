@@ -222,7 +222,6 @@ stock ShowAnimsLib(playerid,lib[])
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
-	printf("OnDialogResponse(%i, %i, %i, %i, %s)",playerid, dialogid, response, listitem, inputtext);
 	switch(dialogid)
 	{
 		case anims_dialog:
