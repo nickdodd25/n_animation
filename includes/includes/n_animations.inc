@@ -268,8 +268,8 @@ public OnPlayerDisconnect(playerid, reason)
 	anims_lastlib[playerid] = "\0";
 
 
-	#if defined NA_OnPlayerConnect
-	    return NA_OnPlayerConnect(playerid, reason);
+	#if defined NA_OnPlayerDisconnect
+	    return NA_OnPlayerDisconnect(playerid, reason);
 	#else
 	    return 1;
 	#endif
@@ -336,14 +336,16 @@ stock n_animtrim(const sSource[])//Trim any und wanted chars from the source
 	forward NA_OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]);
 #endif
 
-#if defined _ALS_OnPlayerConnect
+
+
+#if defined _ALS_OnPlayerDisconnect
 	#undef OnDialogResponse
 #else
-	#define _ALS_OnPlayerConnect
+	#define _ALS_OnPlayerDisconnect
 #endif
 
-#define OnPlayerConnect NA_OnPlayerConnect
+#define OnPlayerDisconnect NA_OnPlayerDisconnect
 
-#if defined NA_OnPlayerConnect
-	forward NA_OnPlayerConnect(playerid, reason);
+#if defined NA_OnPlayerDisconnect
+	forward NA_OnPlayerDisconnect(playerid, reason);
 #endif
